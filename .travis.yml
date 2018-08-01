@@ -1,10 +1,11 @@
 language: go
+
 go: 1.9.1
+
 install:
+- go get github.com/golang/dep/cmd/dep
 - go get github.com/mitchellh/gox
-- go get github.com/hashicorp/terraform
-- go get github.com/smartystreets/goconvey/convey
-- go get
+- dep ensure
 - go vet
 - gox -os "freebsd darwin linux windows" -arch "386 amd64"
 script:
@@ -21,5 +22,5 @@ deploy:
   skip_cleanup: true
 
   on:
-    repo: pyToshka/terraform-provider-virtualbox
+    repo: terra-farm/terraform-provider-virtualbox
     tags: true

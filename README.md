@@ -1,25 +1,25 @@
-[![Build Status](https://travis-ci.org/pyToshka/terraform-provider-virtualbox.svg?branch=master)](https://travis-ci.org/pyToshka/terraform-provider-virtualbox)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox?ref=badge_shield)
+[![Build Status](https://travis-ci.org/terra-farm/terraform-provider-virtualbox.svg?branch=master)](https://travis-ci.org/terra-farm/terraform-provider-virtualbox)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox?ref=badge_shield)
 
 # VirtualBox provider for Terraform
 
 Inspired by [terraform-provider-vix](https://github.com/hooklift/terraform-provider-vix)
 
-Fork from [terraform-provider-virtualbox](https://github.com/ccll/terraform-provider-virtualbox) by ccll
+Donated to the `terra-farm` group by [`ccll`](https://github.com/ccll)
 
 # How to install
 
-1. go get github.com/pyToshka/terraform-provider-virtualbox
+1. go get github.com/terra-farm/terraform-provider-virtualbox
 
 # How to build from source
 
-1. git clone https://github.com/pyToshka/terraform-provider-virtualbox
-2. cd terraform-provider-virtualbox
-3. go get
-4. mv terraform-provider-virtualbox example/
-5. cd example/
-6. terraform plan
-7. terraform apply
+1. git clone https://github.com/terra-farm/terraform-provider-virtualbox
+1. cd terraform-provider-virtualbox
+1. dep ensure
+1. mv terraform-provider-virtualbox example/
+1. cd example/
+1. terraform plan
+1. terraform apply
 
 # Resources
 
@@ -45,13 +45,13 @@ Fork from [terraform-provider-virtualbox](https://github.com/ccll/terraform-prov
 - `optical_disks`, list: The iso image to attach.
 
 ### Network adapter types
+
 - [x] NAT
 - [x] bridged
 
-
 # Example
 
-```
+```hcl
 resource "virtualbox_vm" "node" {
     count = 2
     name = "${format("node-%02d", count.index+1)}"
@@ -87,8 +87,7 @@ output "IPAddr" {
 
 - [ubuntu-15.04](https://github.com/ccll/terraform-provider-virtualbox-images/releases/tag/ubuntu-15.04)
 
-- [Ubuntu Vagrant box](https://atlas.hashicorp.com/ubuntu/boxes/trusty64/versions/14.04/providers/virtualbox.box])
-
+- [Ubuntu Vagrant box](https://vagrantcloud.com/ubuntu/boxes/trusty64/versions/20180206.0.0/providers/virtualbox.box)
 
 # TODO
 
@@ -100,4 +99,4 @@ output "IPAddr" {
 
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox?ref=badge_large)

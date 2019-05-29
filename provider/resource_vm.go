@@ -542,6 +542,8 @@ func net_tf_to_vbox(d *schema.ResourceData) ([]vbox.NIC, error) {
 			return vbox.IntelPro1000TServer, nil
 		case "IntelPro1000MTServer":
 			return vbox.IntelPro1000MTServer, nil
+		case "virtio":
+			return vbox.VirtIO, nil
 		default:
 			return "", fmt.Errorf("[ERROR] Invalid virtual network device: %s", attr)
 		}
@@ -617,6 +619,8 @@ func net_vbox_to_tf(vm *vbox.Machine, d *schema.ResourceData) error {
 			return "IntelPro1000TServer"
 		case vbox.IntelPro1000MTServer:
 			return "IntelPro1000MTServer"
+		case vbox.VirtIO:
+			return "virtio"
 		default:
 			return ""
 		}

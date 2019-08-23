@@ -1,11 +1,11 @@
-[![Build Status](https://travis-ci.org/terra-farm/terraform-provider-virtualbox.svg?branch=master)](https://travis-ci.org/terra-farm/terraform-provider-virtualbox)
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox?ref=badge_shield)
+[![Build Status](https://api.travis-ci.org/pyToshka/terraform-provider-virtualbox.svg?branch=master)](https://travis-ci.org/pyToshka/terraform-provider-virtualbox)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox?ref=badge_shield)
 
 # VirtualBox provider for Terraform
 
 Inspired by [terraform-provider-vix](https://github.com/hooklift/terraform-provider-vix)
 
-Donated to the `terra-farm` group by [`ccll`](https://github.com/ccll)
+Original provider was created by [`ccll`](https://github.com/ccll)
 
 # How to install
 
@@ -13,7 +13,7 @@ Donated to the `terra-farm` group by [`ccll`](https://github.com/ccll)
 
 # How to build from source
 
-1. git clone https://github.com/terra-farm/terraform-provider-virtualbox
+1. git clone https://github.com/pyToshka/terraform-provider-virtualbox
 1. cd terraform-provider-virtualbox
 1. dep ensure
 1. mv terraform-provider-virtualbox example/
@@ -79,6 +79,27 @@ output "IPAddr" {
 
 ```
 
+Nat only example
+
+```hcl
+resource "virtualbox_vm" "node" {
+    count = 1
+    name = "${format("node-%02d", count.index+1)}"
+
+    image = "~/ubuntu-15.04.tar.xz"
+    cpus = 2
+    memory = "512mib"
+
+    network_adapter {
+        type = "nat"
+    }
+
+
+    optical_disks = ["./cloudinit.iso"]
+}
+
+
+```
 # Limitations
 
 - Experimental provider!
@@ -99,4 +120,7 @@ output "IPAddr" {
 
 
 ## License
-[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fterra-farm%2Fterraform-provider-virtualbox?ref=badge_large)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2FpyToshka%2Fterraform-provider-virtualbox?ref=badge_large)
+
+
+

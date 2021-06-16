@@ -4,7 +4,7 @@
 package main
 
 import (
-	"github.com/hashicorp/terraform/plugin"
+	"github.com/hashicorp/terraform/internal/plugin"
 	"github.com/pyToshka/terraform-provider-virtualbox/provider"
 )
 
